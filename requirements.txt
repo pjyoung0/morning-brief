@@ -1,0 +1,6 @@
+pandas
+yfinance
+google-generativeai
+feedparser
+pykrx
+openpyxl
