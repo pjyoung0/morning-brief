@@ -135,9 +135,9 @@ def get_flow_data():
                 ticker
             )
 
-            foreign = df["외국인합계"]
+            foreign = df["외국인"]
 
-            institution = df["기관합계"]
+            institution = df["기관"]
 
             foreign_5d = (
                 foreign.tail(5).sum()
@@ -184,11 +184,11 @@ def get_flow_data():
 
     for sector, stocks in SECTOR_MAP.items():
 
-    foreign_sum = 0
+        foreign_sum = 0
 
-    institution_sum = 0
+        institution_sum = 0
 
-    for item in result:
+        for item in result:
 
         if item["종목"] in stocks:
 
