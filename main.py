@@ -22,14 +22,19 @@ from flow_tracker import (
 )
 
 market = get_market_data()
+print("미국시장 수집 완료")
 
 sector = get_sector_data()
+print("AI 섹터 수집 완료")
 
 watchlist = get_korea_watchlist()
+print("국내 관심종목 생성 완료")
 
 dart = get_dart_disclosure()
+print("DART 수집 완료")
 
-flow_data = get_flow_data() 
+flow_data = get_flow_data()
+print("수급 수집 완료")
 
 report = generate_report(
 
