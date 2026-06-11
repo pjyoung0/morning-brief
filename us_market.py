@@ -3,7 +3,9 @@ import yfinance as yf
 INDICES = {
     "S&P500": "^GSPC",
     "NASDAQ": "^IXIC",
-    "Russell2000": "^RUT"
+    "Russell2000": "^RUT",
+    "USD/KRW": "KRW=X",
+    "WTI": "CL=F"
 }
 
 def get_market_data():
