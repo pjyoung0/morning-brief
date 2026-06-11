@@ -190,24 +190,24 @@ def get_flow_data():
 
         for item in result:
 
-        if item["종목"] in stocks:
+            if item["종목"] in stocks:
 
-            foreign_sum += item["외국인5일"]
+                foreign_sum += item["외국인5일"]
 
-            institution_sum += item["기관5일"]
+                institution_sum += item["기관5일"]
 
-    sector_result[sector] = {
+        sector_result[sector] = {
 
-        "외국인": round(foreign_sum,1),
+            "외국인": round(foreign_sum,1),
 
-        "기관": round(institution_sum,1)
+            "기관": round(institution_sum,1)
 
     }
     
     return {
 
-    "stocks": result,
+        "stocks": result,
 
-    "sectors": sector_result
+        "sectors": sector_result
 
 }
