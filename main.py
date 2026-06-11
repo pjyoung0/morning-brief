@@ -38,5 +38,9 @@ report = generate_report(
     watchlist,
     dart,
     flow_data
-
 )
+
+
+print(report)
+
+send_email(report)
