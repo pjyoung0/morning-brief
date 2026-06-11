@@ -39,6 +39,7 @@ def generate_report(
 
 미국시장
 
+S&P500, NASDAQ, 필요시 다른 지수들도 포함하여 설명하고, 추가적으로 KOSPI 200 야간선물도 설명
 {market_data}
 
 ==================
