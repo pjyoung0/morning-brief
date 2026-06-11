@@ -136,11 +136,10 @@ def get_flow_data():
             )
 
             print(name)
-            print(df.columns)
             
-            ### foreign = df["외국인"]
+            foreign = df["외국인합계"]
 
-            #### institution = df["기관"]
+            institution = df["기관합계"]
 
             foreign_5d = (
                 foreign.tail(5).sum()
@@ -152,17 +151,6 @@ def get_flow_data():
                 / 100000000
             )
 
-            foreign_streak = (
-                count_consecutive_buy(
-                    foreign
-                )
-            )
-
-            institution_streak = (
-                count_consecutive_buy(
-                    institution
-                )
-            )
 
             result.append({
 
