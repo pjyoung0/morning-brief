@@ -4,6 +4,7 @@ INDICES = {
     "S&P500": "^GSPC",
     "NASDAQ": "^IXIC",
     "Russell2000": "^RUT",
+    "SOXX":"SOXX",
     "USD/KRW": "KRW=X",
     "WTI": "CL=F"
 }
