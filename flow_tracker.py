@@ -1,34 +1,80 @@
+import os
+
 from pykrx import stock
 
 from datetime import datetime
 from datetime import timedelta
 
+KRX_ID = os.environ["KRX_ID"]
+
+KRX_PW = os.environ["KRX_PW"]
+
 WATCHLIST = {
 
-    "삼성전자":"005930",
     "SK하이닉스":"000660",
+    "삼성전자":"005930",
 
-    "삼성전기":"009150",
+    "주성엔지니어링":"036930",
 
-    "LS ELECTRIC":"010120",
-
-    "성호전자":"043260",
-
-    "심텍":"222800",
-
-    "코리아써키트":"007810",
-
-    "유진테크":"084370",
-
-    "원익IPS":"240810",
+    "HPSP":"403870",
 
     "한미반도체":"042700",
 
-    "기가비스":"420770",
+    "삼성전기":"009150",
 
-    "리노공업":"058470",
+    "HD현대일렉트릭":"267260",
 
-    "HPSP":"403870"
+    "대한광통신":"010170",
+
+    "솔브레인":"357780",
+
+    "NAVER":"035420",
+
+    "레인보우로보틱스":"277810"
+}
+
+SECTOR_MAP = {
+
+    "HBM·메모리":[
+        "SK하이닉스",
+        "삼성전자"
+    ],
+
+    "전공정 장비":[
+        "주성엔지니어링"
+    ],
+
+    "전공정 검사":[
+        "HPSP"
+    ],
+
+    "후공정·패키징":[
+        "한미반도체"
+    ],
+
+    "PCB":[
+        "삼성전기"
+    ],
+
+    "전력기기":[
+        "HD현대일렉트릭"
+    ],
+
+    "광통신":[
+        "대한광통신"
+    ],
+
+    "소부장 소재":[
+        "솔브레인"
+    ],
+
+    "클라우드":[
+        "NAVER"
+    ],
+
+    "AI로봇":[
+        "레인보우로보틱스"
+    ]
 }
 
 def count_consecutive_buy(series):
@@ -67,6 +113,22 @@ def get_flow_data():
 
         try:
 
+            price_df = stock.get_market_ohlcv_by_date(
+                start_str,
+                end_str,
+                ticker
+            )
+
+            change_pct = round(
+                (
+                    price_df["종가"].iloc[-1]
+                    /
+                    price_df["종가"].iloc[-2]
+                    - 1
+                ) * 100,
+                2
+            )
+
             df = stock.get_market_trading_value_by_date(
                 start_str,
                 end_str,
@@ -103,23 +165,11 @@ def get_flow_data():
 
                 "종목": name,
 
-                "외국인5일":
-                round(
-                    foreign_5d,
-                    1
-                ),
+                "전일등락률": change_pct,
 
-                "기관5일":
-                round(
-                    institution_5d,
-                    1
-                ),
+                "외국인5일": foreign_5d,
 
-                "외국인연속":
-                foreign_streak,
-
-                "기관연속":
-                institution_streak
+                "기관5일": institution_5d
 
             })
 
@@ -130,4 +180,34 @@ def get_flow_data():
                 e
             )
 
-    return result
+    sector_result = {}
+
+    for sector, stocks in SECTOR_MAP.items():
+
+    foreign_sum = 0
+
+    institution_sum = 0
+
+    for item in result:
+
+        if item["종목"] in stocks:
+
+            foreign_sum += item["외국인5일"]
+
+            institution_sum += item["기관5일"]
+
+    sector_result[sector] = {
+
+        "외국인": round(foreign_sum,1),
+
+        "기관": round(institution_sum,1)
+
+    }
+    
+    return {
+
+    "stocks": result,
+
+    "sectors": sector_result
+
+}
