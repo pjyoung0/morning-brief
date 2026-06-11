@@ -15,7 +15,8 @@ def generate_report(
     market_data,
     sector_data,
     watchlist,
-    dart_data
+    dart_data,
+    flow_data
 ):
 
     prompt = f"""
@@ -51,6 +52,12 @@ DART 공시
 
 ==================
 
+수급 데이터
+
+{flow_data}
+
+==================
+
 형식
 
 1. Overnight Market
@@ -61,7 +68,13 @@ DART 공시
 
 4. Important Disclosure
 
-5. PM Comment
+5. 수급 분석
+외국인 연속 순매수
+기관 연속 순매수
+동시 순매수
+투자 시사점
+
+6. PM Comment
 
 실제 펀드매니저가 작성하는
 아침 브리프처럼 간단하고 일목요연하게 작성
