@@ -35,3 +35,7 @@ jobs:
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
 
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
+
+          KRX_ID: ${{ secrets.KRX_ID }}
+
+          KRX_PW: ${{ secrets.KRX_PW }}
