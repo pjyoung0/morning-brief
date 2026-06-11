@@ -77,18 +77,6 @@ SECTOR_MAP = {
     ]
 }
 
-def count_consecutive_buy(series):
-
-    count = 0
-
-    for value in reversed(series):
-
-        if value > 0:
-            count += 1
-        else:
-            break
-
-    return count
 
 def get_flow_data():
 
@@ -158,9 +146,18 @@ def get_flow_data():
 
                 "전일등락률": change_pct,
 
-                "외국인5일": foreign_5d,
+                "외국인5일":
+                    round(foreign_5d,1),
 
-                "기관5일": institution_5d
+                "기관5일": 
+                    round(institution_5d,1),
+
+                "합산":
+                    round(
+                        foreign_5d +
+                        institution_5d,
+                        1
+                    )
 
             })
 
@@ -192,13 +189,31 @@ def get_flow_data():
             "외국인": round(foreign_sum,1),
 
             "기관": round(institution_sum,1)
+        }
+    
+    foreign_rank = sorted(
+        sector_result.items(),
+        key=lambda x: x[1]["외국인"],
+        reverse=True
+    )
 
-    }
+    institution_rank = sorted(
+        sector_result.items(),
+        key=lambda x: x[1]["기관"],
+        reverse=True
+    )
+
     
     return {
 
         "stocks": result,
 
         "sectors": sector_result
+
+        "foreign_rank":
+            foreign_rank[:3],
+
+        "institution_rank":
+            institution_rank[:3]
 
 }
