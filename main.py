@@ -30,10 +30,20 @@ report = generate_report(
     market,
     sector,
     watchlist,
-    dart
+    dart,
+    flow_data
 
 )
 
 print(report)
 
 send_email(report)
+
+from flow_tracker import (
+    get_consecutive_buy_stocks
+)
+
+flow_data = (
+    get_consecutive_buy_stocks()
+)
+
