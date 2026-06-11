@@ -40,16 +40,3 @@ report = generate_report(
     flow_data
 
 )
-
-print(report)
-
-send_email(report)
-
-from flow_tracker import (
-    get_flow_data 
-)
-
-flow_data = (
-    get_flow_data()
-)
-
