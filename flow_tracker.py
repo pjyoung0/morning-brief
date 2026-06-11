@@ -208,7 +208,7 @@ def get_flow_data():
 
         "stocks": result,
 
-        "sectors": sector_result
+        "sectors": sector_result,
 
         "foreign_rank":
             foreign_rank[:3],
