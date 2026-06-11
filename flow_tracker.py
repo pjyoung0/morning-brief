@@ -135,9 +135,12 @@ def get_flow_data():
                 ticker
             )
 
-            foreign = df["외국인"]
+            print(name)
+            print(df.columns)
+            
+            ### foreign = df["외국인"]
 
-            institution = df["기관"]
+            #### institution = df["기관"]
 
             foreign_5d = (
                 foreign.tail(5).sum()
