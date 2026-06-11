@@ -46,10 +46,10 @@ print(report)
 send_email(report)
 
 from flow_tracker import (
-    get_consecutive_buy_stocks
+    get_flow_data 
 )
 
 flow_data = (
-    get_consecutive_buy_stocks()
+    get_flow_data()
 )
 
