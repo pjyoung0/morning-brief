@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 import google.generativeai as genai
 
 genai.configure(
@@ -19,9 +20,17 @@ def generate_report(
     flow_data
 ):
 
+    today = datetime.now().strftime(
+    "%Y-%m-%d"
+)
     prompt = f"""
 
+오늘 날짜는 {today}이다.
+
 당신은 국내 자산운용사 펀드매니저다.
+
+절대로 존재하지 않는 날짜를 생성하지 말 것.
+모든 날짜는 반드시 오늘 날짜 기준으로 작성할 것.
 
 다음 정보를 보고
 오전 7시 모닝브리프를 작성해라.
