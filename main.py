@@ -17,6 +17,10 @@ from email_sender import (
     send_email
 )
 
+from flow_tracker import (
+    get_flow_data
+)
+
 market = get_market_data()
 
 sector = get_sector_data()
@@ -24,6 +28,8 @@ sector = get_sector_data()
 watchlist = get_korea_watchlist()
 
 dart = get_dart_disclosure()
+
+flow_data = get_flow_data() 
 
 report = generate_report(
 
