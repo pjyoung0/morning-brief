@@ -199,7 +199,6 @@ AI 로봇
 
 """
 
-"""
 
     response = model.generate_content(
         prompt
