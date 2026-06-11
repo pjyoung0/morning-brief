@@ -1,3 +1,5 @@
-from us_market import *
+from us_market import get_market_data
 
-print(indices)
+market = get_market_data()
+
+print(market)
