@@ -72,6 +72,11 @@ Flow Data
 
 ━━━━━━━━━━━━━━━━━━
 
+현재 생성시각:
+{datetime.now()}
+
+오늘 날짜는 {today}
+
 1. Overnight Market
 
 아래 지수들을 반드시 포함할 것.
