@@ -17,7 +17,8 @@ def generate_report(
     sector_data,
     watchlist,
     dart_data,
-    flow_data
+    flow_data,
+    news_data
 ):
 
     today = datetime.now().strftime(
