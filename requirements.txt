@@ -5,4 +5,3 @@ feedparser
 pykrx
 openpyxl
 feedparser
-pytz
