@@ -27,6 +27,9 @@ print("미국시장 수집 완료")
 sector = get_sector_data()
 print("AI 섹터 수집 완료")
 
+news = get_ai_news()
+print("뉴스 수집 완료")
+
 watchlist = get_korea_watchlist()
 print("국내 관심종목 생성 완료")
 
@@ -42,7 +45,8 @@ report = generate_report(
     sector,
     watchlist,
     dart,
-    flow_data
+    flow_data,
+    news
 )
 
 
