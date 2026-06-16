@@ -21,8 +21,37 @@ NEWS_KEYWORDS = [
     "Tesla"
 ]
 
-https://feeds.finance.yahoo.com/rss/2.0/headline
+def get_news_data():
 
-def get_ai_news():
+    result = ""
 
+    for ticker, sector in NEWS_TICKERS.items():
+
+        try:
+
+            stock = yf.Ticker(ticker)
+
+            news = stock.news
+
+            if len(news) == 0:
+                continue
+
+            article = news[0]
+
+            title = article["title"]
+
+            result += (
+                f"\n[{sector}] "
+                f"{ticker}\n"
+                f"뉴스: {title}\n"
+            )
+
+        except Exception as e:
+
+            print(
+                ticker,
+                e
+            )
+
+    return result
   
