@@ -4,6 +4,8 @@ RSS_FEEDS = [
 
     "https://feeds.finance.yahoo.com/rss/2.0/headline?s=NVDA&region=US&lang=en-US",
 
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=AMD&region=US&lang=en-US",
+
     "https://feeds.finance.yahoo.com/rss/2.0/headline?s=AVGO&region=US&lang=en-US",
 
     "https://feeds.finance.yahoo.com/rss/2.0/headline?s=MRVL&region=US&lang=en-US",
@@ -12,6 +14,12 @@ RSS_FEEDS = [
 
     "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ASML&region=US&lang=en-US",
 
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=AMAT&region=US&lang=en-US",
+
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=LRCX&region=US&lang=en-US",
+
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=SMCI&region=US&lang=en-US",
+
     "https://feeds.finance.yahoo.com/rss/2.0/headline?s=VRT&region=US&lang=en-US",
 
     "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ETN&region=US&lang=en-US",
@@ -19,6 +27,16 @@ RSS_FEEDS = [
     "https://feeds.finance.yahoo.com/rss/2.0/headline?s=COHR&region=US&lang=en-US",
 
     "https://feeds.finance.yahoo.com/rss/2.0/headline?s=TSLA&region=US&lang=en-US",
+
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ANET&region=US&lang=en-US",
+
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=MSFT&region=US&lang=en-US",
+
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=AMZN&region=US&lang=en-US",
+
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=GOOGL&region=US&lang=en-US",
+
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ISRG&region=US&lang=en-US",
 
     "https://feeds.finance.yahoo.com/rss/2.0/headline?s=KLAC&region=US&lang=en-US",
 
