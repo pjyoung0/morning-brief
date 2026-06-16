@@ -49,7 +49,15 @@ RSS_FEEDS = [
     "https://feeds.finance.yahoo.com/rss/2.0/headline?s=SMR&region=US&lang=en-US",
 
     "https://feeds.finance.yahoo.com/rss/2.0/headline?s=OKLO&region=US&lang=en-US",
+    
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=META&region=US&lang=en-US",
+    
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ORCL&region=US&lang=en-US",
+    
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=CRWV&region=US&lang=en-US",
 
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=NBIS&region=US&lang=en-US",
+    
     "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ELF&region=US&lang=en-US"
 ]
 
