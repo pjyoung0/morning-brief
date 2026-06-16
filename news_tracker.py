@@ -1,25 +1,40 @@
-import feedparser
+import yfinance as yf
 
-NEWS_KEYWORDS = [
+NEWS_TICKERS = {
 
-    "NVIDIA",
+    "NVDA":"AI_CHIP",
 
-    "Broadcom",
+    "AVGO":"AI_CHIP",
 
-    "Marvell",
+    "MRVL":"AI_CHIP",
 
-    "TSMC",
+    "TSM":"Foundry",
 
-    "ASML",
+    "ASML":"Front_End_Equipment",
 
-    "Vertiv",
+    "KLAC":"Front_End_Equipment",
 
-    "Eaton",
+    "VRT":"Power",
 
-    "Coherent",
+    "ETN":"Power",
 
-    "Tesla"
-]
+    "COHR":"Optical",
+
+    "LITE":"Optical",
+
+    "TSLA":"AI_ROBOT",
+
+    "RTX":"Defense",
+
+    "LMT":"Defense",
+
+    "SMR":"SMR",
+
+    "OKLO":"SMR",
+
+    "ELF":"Cosmetics"
+
+}
 
 def get_news_data():
 
@@ -41,9 +56,9 @@ def get_news_data():
             title = article["title"]
 
             result += (
-                f"\n[{sector}] "
+                f"\n[{sector}]\n"
                 f"{ticker}\n"
-                f"뉴스: {title}\n"
+                f"{title}\n"
             )
 
         except Exception as e:
@@ -54,4 +69,3 @@ def get_news_data():
             )
 
     return result
-  
