@@ -145,8 +145,7 @@ SECTORS = {
     "전력기기": {
         "us": [
             "VRT",
-            "ETN",
-            "EATON"
+            "ETN"
         ],
         "kr": [
             "HD현대일렉트릭",
