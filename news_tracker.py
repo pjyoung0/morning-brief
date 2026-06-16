@@ -1,71 +1,63 @@
-import yfinance as yf
+import feedparser
 
-NEWS_TICKERS = {
+RSS_FEEDS = [
 
-    "NVDA":"AI_CHIP",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=NVDA&region=US&lang=en-US",
 
-    "AVGO":"AI_CHIP",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=AVGO&region=US&lang=en-US",
 
-    "MRVL":"AI_CHIP",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=MRVL&region=US&lang=en-US",
 
-    "TSM":"Foundry",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=TSM&region=US&lang=en-US",
 
-    "ASML":"Front_End_Equipment",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ASML&region=US&lang=en-US",
 
-    "KLAC":"Front_End_Equipment",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=VRT&region=US&lang=en-US",
 
-    "VRT":"Power",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ETN&region=US&lang=en-US",
 
-    "ETN":"Power",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=COHR&region=US&lang=en-US",
 
-    "COHR":"Optical",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=TSLA&region=US&lang=en-US",
 
-    "LITE":"Optical",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=KLAC&region=US&lang=en-US",
 
-    "TSLA":"AI_ROBOT",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=LITE&region=US&lang=en-US",
 
-    "RTX":"Defense",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=RTX&region=US&lang=en-US",
 
-    "LMT":"Defense",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=LMT&region=US&lang=en-US",
+    
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=SMR&region=US&lang=en-US",
 
-    "SMR":"SMR",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=OKLO&region=US&lang=en-US",
 
-    "OKLO":"SMR",
+    "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ELF&region=US&lang=en-US"
+]
 
-    "ELF":"Cosmetics"
-
-}
 
 def get_news_data():
 
     result = ""
 
-    for ticker, sector in NEWS_TICKERS.items():
+    for url in RSS_FEEDS:
 
         try:
 
-            stock = yf.Ticker(ticker)
+            feed = feedparser.parse(url)
 
-            news = stock.news
+            entries = feed.entries[:3]
 
-            if len(news) == 0:
-                continue
+            for item in entries:
 
-            article = news[0]
+                result += (
 
-            title = article["title"]
+                    f"제목: {item.title}\n"
 
-            result += (
-                f"\n[{sector}]\n"
-                f"{ticker}\n"
-                f"{title}\n"
-            )
+                )
 
         except Exception as e:
 
-            print(
-                ticker,
-                e
-            )
+            print(e)
 
     return result
