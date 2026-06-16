@@ -1,3 +1,13 @@
+from datetime import datetime
+import pytz
+
+kst = pytz.timezone("Asia/Seoul")
+
+print(
+    "KST 실행시간:",
+    datetime.now(kst)
+)
+
 from us_market import get_market_data
 
 from ai_sector import (
