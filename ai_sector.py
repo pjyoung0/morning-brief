@@ -1,5 +1,83 @@
 import yfinance as yf
 
+ETFS = {
+
+    "반도체":[
+        "SOXX",
+        "SMH",
+        "SOXL",
+        "AIQ"
+    ],
+
+    "전력":[
+        "GRID",
+        "COPX"
+    ],
+
+    "광통신":[
+        "FIVG"
+    ],
+
+    "바이오":[
+        "XBI",
+        "IBB"
+    ],
+
+    "방산":[
+        "ITA"
+    ],
+
+    "피지컬AI":[
+        "ARKX"
+    ],
+
+    "에너지":[
+        "URA",
+        "XLE"
+    ]
+}
+
+
+NEWS_MAP = {
+
+    "NVDA":
+        "AI 데이터센터 투자 확대",
+
+    "AMD":
+        "AI GPU 수요 증가",
+
+    "AVGO":
+        "AI ASIC 수요 확대",
+
+    "MRVL":
+        "커스텀칩 수주 기대",
+
+    "TSM":
+        "첨단공정 생산 확대",
+
+    "KLAC":
+        "반도체 검사장비 투자 증가",
+
+    "SMCI":
+        "AI 서버 수요 증가",
+
+    "VRT":
+        "데이터센터 전력 수요 증가",
+
+    "ETN":
+        "전력 인프라 투자 확대",
+
+    "COHR":
+        "광통신 수요 증가",
+
+    "LITE":
+        "광모듈 수요 증가",
+
+    "TSLA":
+        "휴머노이드 로봇 기대"
+}
+
+
 SECTORS = {
 
     "AI칩": {
@@ -175,7 +253,9 @@ def get_sector_data():
 
                 stock = yf.Ticker(ticker)
 
-                hist = stock.history(period="5d")
+                hist = stock.history(
+                    period="5d"
+                )
 
                 change = round(
                     (
@@ -187,9 +267,15 @@ def get_sector_data():
                     2
                 )
 
+                reason = NEWS_MAP.get(
+                    ticker,
+                    "특이 뉴스 없음"
+                )
+
                 result += (
                     f"{ticker}: "
-                    f"{change}%\n"
+                    f"{change}% "
+                    f"({reason})\n"
                 )
 
                 total_change += change
@@ -219,8 +305,41 @@ def get_sector_data():
             f"{avg}%\n"
         )
 
+        if sector in ETFS:
+
+            result += "\n대표 ETF\n"
+
+            for etf in ETFS[sector]:
+
+                try:
+
+                    hist = yf.Ticker(
+                        etf
+                    ).history(
+                        period="5d"
+                    )
+
+                    etf_change = round(
+                        (
+                            hist["Close"].iloc[-1]
+                            /
+                            hist["Close"].iloc[-2]
+                            - 1
+                        ) * 100,
+                        2
+                    )
+
+                    result += (
+                        f"{etf}: "
+                        f"{etf_change}%\n"
+                    )
+
+                except:
+
+                    pass
+
         result += (
-            "국내 연관주:\n"
+            "\n국내 연관주\n"
         )
 
         for stock_name in data["kr"]:
@@ -229,8 +348,9 @@ def get_sector_data():
                 f"- {stock_name}\n"
             )
 
-    return result
+        result += "\n"
 
+    return result
 
 def get_korea_watchlist():
 
