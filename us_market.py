@@ -6,7 +6,9 @@ INDICES = {
     "Russell2000": "^RUT",
     "SOXX":"SOXX",
     "USD/KRW": "KRW=X",
-    "WTI": "CL=F"
+    "WTI": "CL=F",
+    "VIX":"^VIX",
+    "US10Y":"^TNX"
 }
 
 def get_market_data():
