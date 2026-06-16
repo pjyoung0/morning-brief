@@ -21,13 +21,17 @@ from flow_tracker import (
     get_flow_data
 )
 
+from news_tracker import (
+    get_news_data
+)
+
 market = get_market_data()
 print("미국시장 수집 완료")
 
 sector = get_sector_data()
 print("AI 섹터 수집 완료")
 
-news = get_ai_news()
+news = get_news_data()
 print("뉴스 수집 완료")
 
 watchlist = get_korea_watchlist()
