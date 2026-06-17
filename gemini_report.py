@@ -1,15 +1,11 @@
 import os
 from datetime import datetime
-import google.generativeai as genai
+from google import genai
 
-genai.configure(
+client = genai.Client(
     api_key=os.environ[
         "GEMINI_API_KEY"
     ]
-)
-
-model = genai.GenerativeModel(
-    "gemini-2.5-flash"
 )
 
 def generate_report(
@@ -22,8 +18,9 @@ def generate_report(
 ):
 
     today = datetime.now().strftime(
-    "%Y-%m-%d"
-)
+        "%Y-%m-%d"
+    )
+
     prompt = f"""
 
 오늘 날짜는 {today}이다.
@@ -220,9 +217,10 @@ Flow Data
 
 """
 
-
-    response = model.generate_content(
-        prompt
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=prompt
     )
 
     return response.text
+
