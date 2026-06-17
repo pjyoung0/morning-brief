@@ -1,6 +1,6 @@
 pandas
 yfinance
-google-generativeai
+google-genai
 feedparser
 pykrx
 openpyxl
