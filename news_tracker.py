@@ -1,6 +1,6 @@
 import feedparser
 
-RSS_FEEDS = [
+RSS_FEEDS = {
 
     "NVDA":
         "https://feeds.finance.yahoo.com/rss/2.0/headline?s=NVDA&region=US&lang=en-US",
@@ -85,7 +85,7 @@ RSS_FEEDS = [
     
     "ELF":
         "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ELF&region=US&lang=en-US"
-]
+}
 
 
 def get_news_data():
