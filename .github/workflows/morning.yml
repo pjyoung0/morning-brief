@@ -3,7 +3,7 @@ name: Morning Brief
 on:
 
   schedule:
-    - cron: '50 21 * * *'
+    - cron: '30 07 * * *'
 
   workflow_dispatch:
 
